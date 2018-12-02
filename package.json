@@ -1,5 +1,5 @@
 {
-  "name": "cordova-plugin-scan",
+  "name": "cordova-plugin-scan-input",
   "version": "1.1.7",
   "description": "Cordova Scan Plugin",
   "cordova": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/GTDistance/cordova-plugin-scan"
+    "url": "https://github.com/GTDistance/cordova-plugin-scan-input"
   },
   "keywords": [
     "cordova",
