@@ -123,6 +123,13 @@ static const CGFloat kMargin = 30;
     [flashBtn addTarget:self action:@selector(openFlash:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:flashBtn];
 }
+
+- (BOOL) validateContent:(NSString *)content
+{
+    NSString *emailRegex = @"^\\d{19}$";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:content];
+}
 -(void)showAlert:(id)sender {
     //提示框添加文本输入框
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"请输入编码" message:@"" preferredStyle:UIAlertControllerStyleAlert];
@@ -132,15 +139,15 @@ static const CGFloat kMargin = 30;
                                                          //得到文本信息
         UITextField *text = alert.textFields[0];
         NSLog(@"text = %@", text.text);
-        if([self isBlankString:text.text]){
-            [self addToastWithString:@"请输入桩编码" inView:self.view];
-        }else{
+        if([self validateContent:text.text]){
             NSDictionary *dict = @{@"type":@"3", @"content":text.text};
             NSString * content = [self convertToJsonData:dict];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0), dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"scan" object:self userInfo:@{@"content":content}];
                 [self handleClose:NULL];
             });
+        }else{
+           [self addToastWithString:@"请输入正确的19位编码" inView:self.view];
         }
         
 //                                                         for(UITextField *text in alert.textFields){
