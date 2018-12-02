@@ -3,5 +3,5 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.GTDistance:ScanLibWithInput:2.1.6'
+    compile 'com.github.GTDistance:ScanLibWithInput:2.1.7'
 }
