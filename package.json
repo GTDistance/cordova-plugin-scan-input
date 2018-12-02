@@ -3,7 +3,7 @@
   "version": "1.1.7",
   "description": "Cordova Scan Plugin",
   "cordova": {
-    "id": "cordova-plugin-scan",
+    "id": "cordova-plugin-scan-input",
     "platforms": [
       "android",
       "ios"
