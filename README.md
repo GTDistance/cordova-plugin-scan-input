@@ -1,5 +1,5 @@
 # cordova-plugin-scan-input
-	扫描二维码和条形码的cordova插件
+    扫描二维码和条形码的cordova插件带输入框
 ## 安装
     ionic cordova plugin add cordova-plugin-scan-input
 ## 卸载
